@@ -6,6 +6,11 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const { t } = useTranslation()
+  const handleChangeLanguage = (lng) => {
+    i18n.changeLanguage(lng)
+    localStorage.setItem('lng', lng)
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -20,8 +25,8 @@ export default function Home() {
         </h1>
 
         <div className={styles.description}>
-          <button onClick={() => i18n.changeLanguage('fr')}>Switch to FR</button>
-          <button onClick={() => i18n.changeLanguage('en')}>Switch to EN</button>
+          <button onClick={() => handleChangeLanguage('fr')}>Switch to FR</button>
+          <button onClick={() => handleChangeLanguage('en')}>Switch to EN</button>
         </div>
 
         <div className={styles.grid}>
