@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useTranslation } from 'react-i18next'
+import i18n from '../i18n'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const { t } = useTranslation()
   return (
     <div className={styles.container}>
       <Head>
@@ -13,13 +16,13 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          {t('Welcome to React')}
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <div className={styles.description}>
+          <button onClick={() => i18n.changeLanguage('fr')}>Switch to FR</button>
+          <button onClick={() => i18n.changeLanguage('en')}>Switch to EN</button>
+        </div>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
